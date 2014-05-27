@@ -1,0 +1,165 @@
+{
+    "methods": {
+        "GET_status": {
+            "method": "GET",
+            "description": "Check API status",
+            "path": "/status",
+            "required_params": [],
+            "formats": ["json", "xml"]
+        },
+        "GET_compound_by_id": {
+            "method": "GET",
+            "description": "Get compound by ChEMBLID",
+            "path": "/compounds/:CHEMBL_ID",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL1"},
+            "formats": ["json", "xml"]
+        },
+        "GET_compounds_by_stdInChiKey": {
+            "method": "GET",
+            "description": "Get individual compound by standard InChi Key",
+            "path": "/compounds/stdinchikey/:STD_INCHI_KEY",
+            "required_params": ["STD_INCHI_KEY"],
+            "defaults": {"STD_INCHI_KEY": "QFFGVLORLPOAEC-SNVBAGLBSA-N"},
+            "formats": ["json", "xml"]
+        },
+        "GET_compounds_by_smiles": {
+            "method": "GET",
+            "description": "Get list of compounds by Canonical SMILES",
+            "path": "/compounds/smiles/:SMILES",
+            "required_params": ["SMILES"],
+            "defaults": {"SMILES": "COc1ccc2[C@@H]3[C@H](COc2c1)C(C)(C)OC4=C3C(=O)C(=O)C5=C4OC(C)(C)[C@@H]6COc7cc(OC)ccc7[C@H]56"},
+            "formats": ["json", "xml"]
+        },
+        "POST_compounds_by_smiles": {
+            "method": "POST",
+            "description": "Get list of compounds by Canonical SMILES by HTTP POST",
+            "path":"/compounds/smiles",
+            "required_params": [],
+            "defaults": {"POST": "smiles=COc1ccc2[C@@H]3[C@H](COc2c1)C(C)(C)OC4=C3C(=O)C(=O)C5=C4OC(C)(C)[C@@H]6COc7cc(OC)ccc7[C@H]56"},
+            "formats": ["json", "xml"]
+        },
+        "GET_substructure": {
+            "method": "GET",
+            "description": "Get list of compounds containing the substructure represented by the given Canonical SMILES",
+            "path": "/compounds/substructure/:SMILES",
+            "required_params": ["SMILES"],
+            "defaults": {"SMILES": "CN(CCCN)c1cccc2ccccc12"},
+            "formats": ["json", "xml"]
+        },
+        "POST_substructure": {
+            "method": "POST",
+            "description": "Get list of compounds containing the substructure represented by the given Canonical SMILES by HTTP POST",
+            "path":"/compounds/substructure",
+            "required_params":[],
+            "defaults": {"POST": "smiles=CN(CCCN)c1cccc2ccccc12"},
+            "formats": ["json", "xml"]
+        },
+        "GET_similarity": {
+            "method": "GET",
+            "description": "Get list of compounds similar to the one represented by the given Canonical SMILES, at a similarity cutoff percentage score (minimum value=70%, maximum value=100%).",
+            "path": "/compounds/similarity/:SMILES/:SIM_SCORE",
+            "required_params": ["SMILES", "SIM_SCORE"],
+            "defaults": {"SMILES": "COc1ccc2[C@@H]3[C@H](COc2c1)C(C)(C)OC4=C3C(=O)C(=O)C5=C4OC(C)(C)[C@@H]6COc7cc(OC)ccc7[C@H]56", "SIM_SCORE": 85},
+            "formats": ["json", "xml"]
+        },
+        "POST_similarity": {
+            "method": "POST",
+            "description": "Get list of compounds similar to the one represented by the given Canonical SMILES, at a similarity cutoff percentage score (minimum value=70%, maximum value=100%) by HTTP POST ",
+            "path":"/compounds/similarity",
+            "required_params": [],
+            "defaults": {"POST": "smiles=COc1ccc2[C@@H]3[C@H](COc2c1)C(C)(C)OC4=C3C(=O)C(=O)C5=C4OC(C)(C)[C@@H]6COc7cc(OC)ccc7[C@H]56&simscore=85"},
+            "formats": ["json", "xml"]
+        },
+        "GET_image": {
+            "method": "GET",
+            "description": "Get the image of a given compound.",
+            "path": "/compounds/:CHEMBL_ID/image",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL2"},
+            "formats": ["png"]
+        },
+        "GET_compound_bioactivities": {
+            "method": "GET",
+            "description": "Get individual compound bioactivities",
+            "path": "/compounds/:CHEMBL_ID/bioactivities",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL7"},
+            "formats": ["json", "xml"]
+        },
+        "GET_compound_forms": {
+            "method": "GET",
+            "description": "Get alternative compound forms (e.g. parent and salts) of a compound",
+            "path": "/compounds/:CHEMBL_ID/form",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL278020"},
+            "formats": ["json", "xml"]
+        },
+        "GET_drug_mechanism": {
+            "method": "GET",
+            "description": "Get mechanism of action details for compound (where compound is a drug)",
+            "path": "/compounds/:CHEMBL_ID/drugMechanism",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL1642"},
+            "formats": ["json", "xml"]
+        },
+        "GET_targets": {
+            "method": "GET",
+            "description": "Get all targets",
+            "path": "/targets",
+            "required_params": [],
+            "formats": ["json", "xml"]
+        },
+        "GET_target_by_id": {
+            "method": "GET",
+            "description": "Get target by ChEMBLID",
+            "path": "/targets/:CHEMBL_ID",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL1824"},
+            "formats": ["json", "xml"]
+        },
+        "GET_target_by_uniprot": {
+            "method": "GET",
+            "description": "Get individual target by UniProt Accession Id",
+            "path": "/targets/uniprot/:UNIPROT_ID",
+            "required_params": ["UNIPROT_ID"],
+            "defaults": {"UNIPROT_ID": "Q13936"},
+            "formats": ["json", "xml"]
+        },
+        "GET_target_bioactivities": {
+            "method": "GET",
+            "description": "Get individual target bioactivities",
+            "path": "/targets/:CHEMBL_ID/bioactivities",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL2146303"},
+            "formats": ["json", "xml"]
+        },
+        "GET_approved_drugs": {
+            "method": "GET",
+            "description": "Get approved drugs for target",
+            "path": "/targets/:CHEMBL_ID/approvedDrug",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL1824"},
+            "formats": ["json", "xml"]
+        },
+        "GET_assay_by_id": {
+            "method": "GET",
+            "description": "Get assay by ChEMBLID",
+            "path": "/assays/:CHEMBL_ID",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL1217643"},
+            "formats": ["json", "xml"]
+        },
+        "GET_assay_bioactivities": {
+            "method": "GET",
+            "description": "Get individual assay bioactivities",
+            "path": "/assays/:CHEMBL_ID/bioactivities",
+            "required_params": ["CHEMBL_ID"],
+            "defaults": {"CHEMBL_ID": "CHEMBL1217643"},
+            "formats": ["json", "xml"]
+        }
+    },
+    "version": "{{ WS_VERSION }}",
+    "base_url": "{{ WS_BASE_URL }}",
+    "name": "{{ WS_DOCS_TITLE }}"
+}

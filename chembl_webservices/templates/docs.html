@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <title>REST API</title>
+<head>
+
+<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.png"/>
+
+<link href="{{ STATIC_URL }}css/bootstrap-combined.min.css" rel="stylesheet">
+<link href="{{ STATIC_URL }}css/docs.css" rel="stylesheet">
+<link href="{{ STATIC_URL }}css/zenburn.min.css" rel="stylesheet">
+
+<script src="{{ STATIC_URL }}js/jquery-1.9.1.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery-migrate-1.2.0.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery-ui-1.8.custom.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.mousewheel.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}js/raphael.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.base64.js"></script>
+<script src="{{ STATIC_URL }}js/markdown.min.js"></script>
+<script src="{{ STATIC_URL }}js/vkbeautify.js"></script>
+<script src="{{ STATIC_URL }}js/canvasmol.js"></script>
+<script src="{{ STATIC_URL }}js/ZeroClipboard.js"></script>
+<script src="{{ STATIC_URL }}js/spore.js"></script>
+<script src="{{ STATIC_URL }}js/highlight.min.js"></script>
+<script type="text/javascript">
+var api;
+$(function() {
+   spore.debug(true);
+   spore.create('{% url 'ws_spore_endpoint' %}',function(a){api=a;},'','servicelist');
+   ZeroClipboard.setMoviePath( '{{ STATIC_URL }}swf/ZeroClipboard.swf' );
+});
+
+function ClipboardCopyInit(control, text) {
+    var clip = new ZeroClipboard.Client();
+    var status = $('.clipboardStatus', $(control).closest('.restapiholderresponse'));
+    clip.glue(control);
+    clip.setText(text);
+    clip.addEventListener('complete', function(client, text) {
+        if (status) {
+            status.text('copied');
+            status.show();
+            status.fadeOut(2000);
+        } else
+            console.log(title + ' copied to clipboard');
+    });
+}
+
+</script>
+</head>
+<body>
+        <div style="margin: auto; width:300px; margin-top:10px;"><p style="font-size:18px;">Check out our <a href="https://github.com/chembl/chembl_webresource_client">python client</a></p></div>
+        <div class="offset1" id="servicelist"></div>
+</body>
+</html>
