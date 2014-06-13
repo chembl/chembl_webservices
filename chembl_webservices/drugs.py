@@ -27,7 +27,7 @@ except ImportError:
 class CompoundDerivativeResource(DerivativeResource):
     def __init__(self):
         super(CompoundDerivativeResource, self).__init__()
-        self.downgraded_missing = false
+        self.downgraded_missing = False
 
     def getCoreResources(self, pk):
         if self.downgraded_missing:

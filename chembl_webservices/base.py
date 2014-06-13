@@ -306,7 +306,8 @@ class ChEMBLApiBase(Resource):
                 kwargs.update(request.GET.dict())
 
             elif request.method == 'POST':
-                if request.META['CONTENT_TYPE'].startswith(('multipart/form-data', 'multipart/form-data')):
+                if request.META.get('CONTENT_TYPE', 'application/json').startswith(
+                    ('multipart/form-data', 'multipart/form-data')):
                     post_arg = request.POST.dict()
                 else:
                     post_arg = self.deserialize(request, request.body,

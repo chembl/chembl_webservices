@@ -12,12 +12,12 @@ except ImportError:
     use_setuptools()
     from setuptools import setup
 
-if sys.version_info < (2, 7, 3) or sys.version_info >= (2, 7, 6):
-    raise Exception('ChEMBL software stack requires python 2.7.3 - 2.7.5')
+if sys.version_info < (2, 7, 3) or sys.version_info >= (2, 7, 7):
+    raise Exception('ChEMBL software stack requires python 2.7.3 - 2.7.7')
 
 setup(
     name='chembl_webservices',
-    version='0.5.13',
+    version='0.5.15',
     author='Michal Nowotka',
     author_email='mnowotka@ebi.ac.uk',
     description='Python package providing chembl webservices API.',
