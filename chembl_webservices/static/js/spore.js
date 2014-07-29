@@ -417,7 +417,7 @@ var spore = {
 
 spore.api.prototype._call = function (fn, params, onsuccess, onerror) {
     var method = this.spec.methods[fn],
-        url = this.spec.base_url + method.path,
+        url = (this.spec.base_url != undefined) ? this.spec.base_url + method.path : method.path.substring(1),
         prm = $.extend({}, params),
         plog = this.spec.name + '.' + fn + ' ';
     dta = {};

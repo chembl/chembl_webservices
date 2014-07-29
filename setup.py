@@ -17,7 +17,7 @@ if sys.version_info < (2, 7, 3) or sys.version_info >= (2, 7, 7):
 
 setup(
     name='chembl_webservices',
-    version='0.5.15',
+    version='0.5.19',
     author='Michal Nowotka',
     author_email='mnowotka@ebi.ac.uk',
     description='Python package providing chembl webservices API.',
@@ -31,7 +31,7 @@ setup(
         'simplejson==2.3.2',
         'Pillow>=2.1.0',
         'django-tastypie==0.10',
-        'chembl_core_model>=0.5.1',
+        'chembl_core_model>=0.5.8',
         'cairocffi>=0.5.1',
         'numpy>=1.7.1',
         'mimeparse',
