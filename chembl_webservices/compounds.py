@@ -86,34 +86,34 @@ class CompoundsResource(ChEMBLApiBase):
             url(r"^(?P<resource_name>%s)/stdinchikey/(?P<stdinchikey>\w[\w-]*)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_detail'),
                 name="api_dispatch_detail"),
-            url(r"^(?P<resource_name>%s)/stdinchikey/(?P<stdinchikey>\w[\w-]*)\.(?P<format>json|xml)%s$" % (
+            url(r"^(?P<resource_name>%s)/stdinchikey/(?P<stdinchikey>\w[\w-]*)\.(?P<format>)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_detail'),
                 name="api_dispatch_detail"),
-            url(r"^(?P<resource_name>%s)/smiles/?(?P<smiles>[\S]*)\.(?P<format>json|xml)%s$" % (
+            url(r"^(?P<resource_name>%s)/smiles/?(?P<smiles>[\S]*)\.(?P<format>)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_list'),
                 name="api_dispatch_list"),
             url(r"^(?P<resource_name>%s)/smiles/?(?P<smiles>[\S]*)%s$" % (self._meta.resource_name, trailing_slash()),
                 self.wrap_view('dispatch_list'),
                 name="api_dispatch_list"),
-            url(r"^(?P<resource_name>%s)/substructure/?(?P<smiles>[\S]*)\.(?P<format>json|xml)%s$" % (
+            url(r"^(?P<resource_name>%s)/substructure/?(?P<smiles>[\S]*)\.(?P<format>)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_sim'),
                 name="api_get_substructure"),
             url(r"^(?P<resource_name>%s)/substructure/?(?P<smiles>[\S]*)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_sim'),
                 name="api_get_substructure"),
-            url(r"^(?P<resource_name>%s)/similarity/(?P<smiles>[\S]*)/(?P<simscore>\d+)\.(?P<format>json|xml)%s$" % (
+            url(r"^(?P<resource_name>%s)/similarity/(?P<smiles>[\S]*)/(?P<simscore>\d+)\.(?P<format>)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_sim'),
                 name="api_get_similarity"),
             url(r"^(?P<resource_name>%s)/similarity/(?P<smiles>[\S]*)/(?P<simscore>\d+)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_sim'),
                 name="api_get_similarity"),
-            url(r"^(?P<resource_name>%s)/similarity.(?P<format>json|xml)%s$" % (
+            url(r"^(?P<resource_name>%s)/similarity.(?P<format>)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_sim'),
                 name="api_get_similarity"),
             url(r"^(?P<resource_name>%s)/similarity%s$" % (self._meta.resource_name, trailing_slash()),
                 self.wrap_view('dispatch_sim'),
                 name="api_get_similarity"),
-            url(r"^(?P<resource_name>%s)/(?P<chemblid>\w[\w-]*)\.(?P<format>json|xml)%s$" % (
+            url(r"^(?P<resource_name>%s)/(?P<chemblid>\w[\w-]*)\.(?P<format>)%s$" % (
                 self._meta.resource_name, trailing_slash()), self.wrap_view('dispatch_detail'),
                 name="api_dispatch_detail"),
             url(r"^(?P<resource_name>%s)/(?P<chemblid>\w[\w-]*)%s$" % (self._meta.resource_name, trailing_slash()),
@@ -124,7 +124,7 @@ class CompoundsResource(ChEMBLApiBase):
                 name="api_get_image"),
             url(r"^(?P<resource_name>%s)$" % self._meta.resource_name, self.wrap_view('dispatch_compounds'),
                 name="api_dispatch_compounds"),
-            url(r"^(?P<resource_name>%s)\.(?P<format>json|xml)$" % self._meta.resource_name,
+            url(r"^(?P<resource_name>%s)\.(?P<format>)$" % self._meta.resource_name,
                 self.wrap_view('dispatch_compounds'), name="api_dispatch_compounds"),
         ]
 
