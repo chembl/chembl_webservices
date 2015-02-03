@@ -73,7 +73,7 @@ class TargetsResource(ChEMBLApiBase):
 
         ret = OrderedDict()
         try:
-            good_targets = targets.filter(in_starlite=True)
+            good_targets = targets.filter(downgraded=False)
         except FieldError:
             good_targets = targets
 
