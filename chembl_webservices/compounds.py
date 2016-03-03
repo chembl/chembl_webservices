@@ -173,7 +173,6 @@ class CompoundsResource(ChEMBLApiBase):
                   ('chembl_id', 'chemblId'),
                   ('pref_name', 'preferredCompoundName'),
                   ('max_phase', 'knownDrug'),
-                  ('compoundproperties__med_chem_friendly', 'medChemFriendly'),
                   ('compoundproperties__ro3_pass', 'passesRuleOfThree'),
                   ('compoundproperties__full_molformula', 'molecularFormula'),
                   ('compoundstructures__canonical_smiles', 'smiles'),
@@ -238,7 +237,6 @@ class CompoundsResource(ChEMBLApiBase):
             if not r['synonyms']:
                 r['synonyms'] = None
             r['knownDrug'] = 'Yes' if r['knownDrug'] == 4 else 'No'
-            r['medChemFriendly'] = 'Yes' if r['medChemFriendly'] == 'Y' else 'No'
             r['passesRuleOfThree'] = 'Yes' if r['passesRuleOfThree'] == 'Y' else 'No'
 
         return ret
