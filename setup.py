@@ -11,8 +11,8 @@ except ImportError:
     from setuptools import setup
 
 setup(
-    name='chembl_webservices',
-    version='0.7.2',
+    name='chembl-webservices',
+    version='0.8.0',
     author='Michal Nowotka',
     author_email='mnowotka@ebi.ac.uk',
     description='Python package providing chembl webservices API.',
@@ -26,7 +26,7 @@ setup(
         'simplejson==2.3.2',
         'Pillow>=2.1.0',
         'django-tastypie==0.10',
-        'chembl_core_model>=0.7.0',
+        'chembl-core-model>=0.8.3',
         'cairocffi>=0.5.1',
         'numpy>=1.7.1',
         'mimeparse',
